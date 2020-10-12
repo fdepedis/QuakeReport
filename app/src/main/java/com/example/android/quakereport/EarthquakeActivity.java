@@ -96,10 +96,14 @@ public class EarthquakeActivity extends AppCompatActivity
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default));
 
+        String numItems = sharedPrefs.getString(
+                getString(R.string.settings_num_item_key),
+                getString(R.string.settings_num_item_default));
+
         Uri baseUri = Uri.parse(USGS_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", "30");
+        uriBuilder.appendQueryParameter("limit", numItems);
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
