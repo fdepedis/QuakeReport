@@ -39,7 +39,7 @@ public final class QueryUtils {
      */
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
 
-        Log.i(LOG_TAG, "Log - in fetchEarthquakeData() method");
+        Log.d(LOG_TAG, "Log - in fetchEarthquakeData() method");
 
         // Create URL object
         URL url = createUrl(requestUrl);
@@ -49,7 +49,7 @@ public final class QueryUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+            Log.d(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
@@ -67,7 +67,7 @@ public final class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Problem building the URL ", e);
+            Log.d(LOG_TAG, "Problem building the URL ", e);
         }
         return url;
     }
@@ -98,11 +98,10 @@ public final class QueryUtils {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
-                Log.w(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
+                Log.d(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.d(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -148,9 +147,6 @@ public final class QueryUtils {
         // Create an empty ArrayList that we can start adding earthquakes to
         List<Earthquake> earthquakes = new ArrayList<>();
 
-        // Try to parse the JSON response string. If there's a problem with the way the JSON
-        // is formatted, a JSONException exception object will be thrown.
-        // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
             // Create a JSONObject from the JSON response string
@@ -166,9 +162,6 @@ public final class QueryUtils {
                 // Get a single earthquake at position i within the list of earthquakes
                 JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
 
-                // For a given earthquake, extract the JSONObject associated with the
-                // key called "properties", which represents a list of all properties
-                // for that earthquake.
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
 
                 // Extract the value for the key called "mag"
@@ -192,13 +185,9 @@ public final class QueryUtils {
             }
 
         } catch (JSONException e) {
-            // If an error is thrown when executing any of the above statements in the "try" block,
-            // catch the exception here, so the app doesn't crash. Print a log message
-            // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.d("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
-        // Return the list of earthquakes
         return earthquakes;
     }
 

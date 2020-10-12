@@ -6,11 +6,12 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Firebase" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0896df6-2b34-4c1c-9bbb-83effd77c167" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/quakereport/EarthquakeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/quakereport/EarthquakeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +21,7 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_XL_API_30" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -50,6 +52,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KotlinMultiplatform">
+    <allAvailableExecutables />
+  </component>
   <component name="ProjectId" id="1hNmKDIS6ghUjIRayPiSYSIk1cI" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -66,10 +71,11 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="Nexus_5X_Flax_API_25" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -265,5 +271,35 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1181" y="262" key="FileChooserDialogImpl" timestamp="1602516887926">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1181" y="262" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602516887926" />
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1602519533230">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602519533230" />
+    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1602519533230">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602519533230" />
+    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1602519533229">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602519533229" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1602519533230">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602519533230" />
+    <state x="-1287" y="219" width="657" height="602" key="NewModule_or_Project.wizard" timestamp="1602517037001">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1287" y="219" width="657" height="602" key="NewModule_or_Project.wizard/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602517037001" />
+    <state x="-1264" y="252" width="607" height="536" key="find.popup" timestamp="1602520146916">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1264" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602520146916" />
   </component>
 </project>

@@ -4,9 +4,9 @@ import android.content.SharedPreferences;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.support.v7.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -31,6 +31,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
             bindPreferenceSummaryToValue(orderBy);
+
+            Preference numItems = findPreference(getString(R.string.settings_num_item_key));
+            bindPreferenceSummaryToValue(numItems);
         }
 
         @Override
