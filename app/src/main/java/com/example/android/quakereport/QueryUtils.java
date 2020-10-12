@@ -39,7 +39,7 @@ public final class QueryUtils {
      */
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
 
-        Log.i(LOG_TAG, "Log - in fetchEarthquakeData() method");
+        Log.d(LOG_TAG, "Log - in fetchEarthquakeData() method");
 
         // Create URL object
         URL url = createUrl(requestUrl);
@@ -49,7 +49,7 @@ public final class QueryUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+            Log.d(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
@@ -67,7 +67,7 @@ public final class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Problem building the URL ", e);
+            Log.d(LOG_TAG, "Problem building the URL ", e);
         }
         return url;
     }
@@ -98,11 +98,10 @@ public final class QueryUtils {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
-                Log.w(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
+                Log.d(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.d(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -186,7 +185,7 @@ public final class QueryUtils {
             }
 
         } catch (JSONException e) {
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.d("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
         return earthquakes;

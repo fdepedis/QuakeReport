@@ -40,7 +40,7 @@ public class EarthquakeActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.i(LOG_TAG, "Log - in onCreate() method");
+        Log.d(LOG_TAG, "Log - in onCreate() method");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
@@ -73,10 +73,10 @@ public class EarthquakeActivity extends AppCompatActivity
         if (networkInfo != null && networkInfo.isConnected()) {
             LoaderManager loaderManager = getLoaderManager();
 
-            Log.i(LOG_TAG, "Log - in before initLoader() call");
+            Log.d(LOG_TAG, "Log - in before initLoader() call");
             loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
 
-            Log.i(LOG_TAG, "Log - in after initLoader() call");
+            Log.d(LOG_TAG, "Log - in after initLoader() call");
         } else {
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
@@ -99,11 +99,11 @@ public class EarthquakeActivity extends AppCompatActivity
         Uri baseUri = Uri.parse(USGS_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", "10");
+        uriBuilder.appendQueryParameter("limit", "30");
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
-        Log.i(LOG_TAG, "Log - in onCreateLoader() method");
+        Log.d(LOG_TAG, "Log - in onCreateLoader() method");
 
         // Create a new loader for the given URL
         return new EarthquakeLoader(this, uriBuilder.toString());
@@ -112,7 +112,7 @@ public class EarthquakeActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
 
-        Log.i(LOG_TAG, "Log - in onCreateLoader() method");
+        Log.d(LOG_TAG, "Log - in onCreateLoader() method");
 
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
@@ -134,7 +134,7 @@ public class EarthquakeActivity extends AppCompatActivity
     @Override
     public void onLoaderReset(Loader<List<Earthquake>> loader) {
 
-        Log.i(LOG_TAG, "Log - in onCreateLoader() method");
+        Log.d(LOG_TAG, "Log - in onCreateLoader() method");
 
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
