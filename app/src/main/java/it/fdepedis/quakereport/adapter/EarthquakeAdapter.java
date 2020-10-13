@@ -1,4 +1,4 @@
-package com.example.android.quakereport;
+package it.fdepedis.quakereport.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
@@ -13,6 +13,9 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.model.Earthquake;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
