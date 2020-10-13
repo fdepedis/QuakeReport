@@ -84,6 +84,7 @@ public class EarthquakeActivity extends AppCompatActivity
                 Log.d(LOG_TAG, "pullToRefresh.setOnRefreshListener" );
 
                 //Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
+                pullToRefresh.setColorSchemeResources(R.color.red, R.color.orange, R.color.blue, R.color.green);
                 pullToRefresh.setRefreshing(false);
             }
         });
