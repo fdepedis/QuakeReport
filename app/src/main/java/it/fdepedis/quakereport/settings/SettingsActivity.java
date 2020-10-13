@@ -1,4 +1,4 @@
-package com.example.android.quakereport;
+package it.fdepedis.quakereport.settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +8,9 @@ import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
+
+import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.activity.EarthquakeActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.android.quakereport;
+package it.fdepedis.quakereport.activity;
 
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -24,11 +25,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.fdepedis.quakereport.adapter.EarthquakeAdapter;
+import it.fdepedis.quakereport.loader.EarthquakeLoader;
+import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.settings.SettingsActivity;
+import it.fdepedis.quakereport.model.Earthquake;
+import it.fdepedis.quakereport.utils.QueryUtils;
+import it.fdepedis.quakereport.utils.Utils;
+
 public class EarthquakeActivity extends AppCompatActivity
         implements LoaderCallbacks<List<Earthquake>> {
 
     private static final String LOG_TAG = EarthquakeActivity.class.getName();
-
+    private Context context;
 
     private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
     //"http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
@@ -36,6 +45,7 @@ public class EarthquakeActivity extends AppCompatActivity
     private static final int EARTHQUAKE_LOADER_ID = 1;
     private EarthquakeAdapter mAdapter;
     private TextView mEmptyStateTextView;
+    private SwipeRefreshLayout pullToRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +55,8 @@ public class EarthquakeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
+        context = this;
+
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
@@ -52,6 +64,8 @@ public class EarthquakeActivity extends AppCompatActivity
 
         mAdapter = new EarthquakeAdapter(this, new ArrayList<Earthquake>());
         earthquakeListView.setAdapter(mAdapter);
+
+        pullToRefresh = findViewById(R.id.pullToRefresh);
 
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,6 +78,16 @@ public class EarthquakeActivity extends AppCompatActivity
             }
         });
 
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //Utils.refreshData(context);
+                //EarthquakeLoader(context, uriBuilder.toString());
+                //QueryUtils.fetchEarthquakeData(mUrl);
+                Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -110,7 +134,7 @@ public class EarthquakeActivity extends AppCompatActivity
         Log.d(LOG_TAG, "Log - in onCreateLoader() method");
 
         // Create a new loader for the given URL
-        return new EarthquakeLoader(this, uriBuilder.toString());
+        return new EarthquakeLoader(context, uriBuilder.toString());
     }
 
     @Override

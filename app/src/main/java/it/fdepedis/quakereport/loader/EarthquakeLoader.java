@@ -1,10 +1,13 @@
-package com.example.android.quakereport;
+package it.fdepedis.quakereport.loader;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.util.Log;
 
 import java.util.List;
+
+import it.fdepedis.quakereport.utils.QueryUtils;
+import it.fdepedis.quakereport.model.Earthquake;
 
 public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
 

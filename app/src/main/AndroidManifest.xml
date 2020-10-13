@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.quakereport">
+    package="it.fdepedis.quakereport">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EarthquakeActivity">
+        <activity android:name=".activity.EarthquakeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,11 +20,11 @@
         </activity>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:label="@string/settings_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.quakereport.EarthquakeActivity" />
+                android:value=".activity.EarthquakeActivity" />
         </activity>
 
     </application>

@@ -1,4 +1,4 @@
-package com.example.android.quakereport;
+package it.fdepedis.quakereport.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,19 +18,15 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.fdepedis.quakereport.model.Earthquake;
+
 /**
  * Helper methods related to requesting and receiving earthquake data from USGS.
  */
 public final class QueryUtils {
 
-    /** Tag for the log messages */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    /**
-     * Create a private constructor because no one should ever create a {@link QueryUtils} object.
-     * This class is only meant to hold static variables and methods, which can be accessed
-     * directly from the class name QueryUtils (and an object instance of QueryUtils is not needed).
-     */
     private QueryUtils() {
     }
 
