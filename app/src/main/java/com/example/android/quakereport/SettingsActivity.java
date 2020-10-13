@@ -1,5 +1,6 @@
 package com.example.android.quakereport;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -63,6 +64,13 @@ public class SettingsActivity extends AppCompatActivity {
             onPreferenceChange(preference, preferenceString);
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, EarthquakeActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 
 }
