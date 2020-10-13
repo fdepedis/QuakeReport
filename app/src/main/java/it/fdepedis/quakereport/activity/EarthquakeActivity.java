@@ -39,9 +39,6 @@ public class EarthquakeActivity extends AppCompatActivity
     private static final String LOG_TAG = EarthquakeActivity.class.getName();
     private Context context;
 
-    private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
-    //"http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
-
     private static final int EARTHQUAKE_LOADER_ID = 1;
     private EarthquakeAdapter mAdapter;
     private TextView mEmptyStateTextView;
@@ -81,10 +78,12 @@ public class EarthquakeActivity extends AppCompatActivity
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //Utils.refreshData(context);
-                //EarthquakeLoader(context, uriBuilder.toString());
-                //QueryUtils.fetchEarthquakeData(mUrl);
-                Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
+                String urlToRefresh = Utils.refreshData(context);
+                new EarthquakeLoader(context, urlToRefresh);
+
+                Log.d(LOG_TAG, "pullToRefresh.setOnRefreshListener" );
+
+                //Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
                 pullToRefresh.setRefreshing(false);
             }
         });
@@ -111,30 +110,12 @@ public class EarthquakeActivity extends AppCompatActivity
     @Override
     public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle) {
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String minMagnitude = sharedPrefs.getString(
-                getString(R.string.settings_min_magnitude_key),
-                getString(R.string.settings_min_magnitude_default));
-
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default));
-
-        String numItems = sharedPrefs.getString(
-                getString(R.string.settings_num_item_key),
-                getString(R.string.settings_num_item_default));
-
-        Uri baseUri = Uri.parse(USGS_REQUEST_URL);
-        Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", numItems);
-        uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        uriBuilder.appendQueryParameter("orderby", orderBy);
-
         Log.d(LOG_TAG, "Log - in onCreateLoader() method");
 
+        String dataToFetch = Utils.refreshData(context);
+
         // Create a new loader for the given URL
-        return new EarthquakeLoader(context, uriBuilder.toString());
+        return new EarthquakeLoader(context, dataToFetch);
     }
 
     @Override
