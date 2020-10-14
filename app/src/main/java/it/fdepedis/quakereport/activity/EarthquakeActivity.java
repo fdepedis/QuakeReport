@@ -37,6 +37,7 @@ public class EarthquakeActivity extends AppCompatActivity
     private EarthquakeAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private SwipeRefreshLayout pullToRefresh;
+    private ListView earthquakeListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class EarthquakeActivity extends AppCompatActivity
 
         context = this;
 
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         earthquakeListView.setEmptyView(mEmptyStateTextView);
