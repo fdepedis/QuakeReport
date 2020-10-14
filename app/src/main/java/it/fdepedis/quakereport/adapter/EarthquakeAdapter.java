@@ -125,25 +125,13 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     }
 
     private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(dateObject);
     }
     
     private String formatTime(Date dateObject) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
         return timeFormat.format(dateObject);
     }
 }
-
-/*
-
-    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-    Date date = df.parse(dateToConvert);
-    String year = "年", month = "月", day = "号";
-    //SimpleDateFormat needed since getter were deprecated
-    SimpleDateFormat yearsdf = new SimpleDateFormat("yyyy");
-    SimpleDateFormat monthsdf = new SimpleDateFormat("MM");
-    SimpleDateFormat daysdf = new SimpleDateFormat("dd");
-            if(isHourNeeded){
-                    SimpleDateFormat hoursdf = new SimpleDateFormat("hh:mm:ss");*/
-
