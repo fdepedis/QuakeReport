@@ -5,14 +5,12 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,17 +18,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import it.fdepedis.quakereport.adapter.EarthquakeAdapter;
 import it.fdepedis.quakereport.loader.EarthquakeLoader;
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.settings.SettingsActivity;
 import it.fdepedis.quakereport.model.Earthquake;
-import it.fdepedis.quakereport.utils.QueryUtils;
 import it.fdepedis.quakereport.utils.Utils;
 
 public class EarthquakeActivity extends AppCompatActivity
@@ -43,6 +37,7 @@ public class EarthquakeActivity extends AppCompatActivity
     private EarthquakeAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private SwipeRefreshLayout pullToRefresh;
+    private ListView earthquakeListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +49,7 @@ public class EarthquakeActivity extends AppCompatActivity
 
         context = this;
 
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         earthquakeListView.setEmptyView(mEmptyStateTextView);
@@ -84,6 +79,7 @@ public class EarthquakeActivity extends AppCompatActivity
                 Log.d(LOG_TAG, "pullToRefresh.setOnRefreshListener" );
 
                 //Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
+                pullToRefresh.setColorSchemeResources(R.color.red, R.color.orange, R.color.blue, R.color.green);
                 pullToRefresh.setRefreshing(false);
             }
         });

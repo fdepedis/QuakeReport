@@ -2,13 +2,14 @@ package it.fdepedis.quakereport.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -133,3 +134,16 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         return timeFormat.format(dateObject);
     }
 }
+
+/*
+
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    Date date = df.parse(dateToConvert);
+    String year = "年", month = "月", day = "号";
+    //SimpleDateFormat needed since getter were deprecated
+    SimpleDateFormat yearsdf = new SimpleDateFormat("yyyy");
+    SimpleDateFormat monthsdf = new SimpleDateFormat("MM");
+    SimpleDateFormat daysdf = new SimpleDateFormat("dd");
+            if(isHourNeeded){
+                    SimpleDateFormat hoursdf = new SimpleDateFormat("hh:mm:ss");*/
+
