@@ -7,7 +7,7 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.activity.EarthquakeActivity;

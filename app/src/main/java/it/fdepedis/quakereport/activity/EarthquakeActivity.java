@@ -5,14 +5,12 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,17 +18,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import it.fdepedis.quakereport.adapter.EarthquakeAdapter;
 import it.fdepedis.quakereport.loader.EarthquakeLoader;
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.settings.SettingsActivity;
 import it.fdepedis.quakereport.model.Earthquake;
-import it.fdepedis.quakereport.utils.QueryUtils;
 import it.fdepedis.quakereport.utils.Utils;
 
 public class EarthquakeActivity extends AppCompatActivity
@@ -39,13 +33,11 @@ public class EarthquakeActivity extends AppCompatActivity
     private static final String LOG_TAG = EarthquakeActivity.class.getName();
     private Context context;
 
-    private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
-    //"http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
-
     private static final int EARTHQUAKE_LOADER_ID = 1;
     private EarthquakeAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private SwipeRefreshLayout pullToRefresh;
+    private ListView earthquakeListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +49,7 @@ public class EarthquakeActivity extends AppCompatActivity
 
         context = this;
 
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         earthquakeListView.setEmptyView(mEmptyStateTextView);
@@ -81,10 +73,13 @@ public class EarthquakeActivity extends AppCompatActivity
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //Utils.refreshData(context);
-                //EarthquakeLoader(context, uriBuilder.toString());
-                //QueryUtils.fetchEarthquakeData(mUrl);
-                Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
+                String urlToRefresh = Utils.refreshData(context);
+                new EarthquakeLoader(context, urlToRefresh);
+
+                Log.d(LOG_TAG, "pullToRefresh.setOnRefreshListener" );
+
+                //Toast.makeText(context, "Pull to refresh", Toast.LENGTH_SHORT).show();
+                pullToRefresh.setColorSchemeResources(R.color.red, R.color.orange, R.color.blue, R.color.green);
                 pullToRefresh.setRefreshing(false);
             }
         });
@@ -111,30 +106,12 @@ public class EarthquakeActivity extends AppCompatActivity
     @Override
     public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle) {
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String minMagnitude = sharedPrefs.getString(
-                getString(R.string.settings_min_magnitude_key),
-                getString(R.string.settings_min_magnitude_default));
-
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default));
-
-        String numItems = sharedPrefs.getString(
-                getString(R.string.settings_num_item_key),
-                getString(R.string.settings_num_item_default));
-
-        Uri baseUri = Uri.parse(USGS_REQUEST_URL);
-        Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", numItems);
-        uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        uriBuilder.appendQueryParameter("orderby", orderBy);
-
         Log.d(LOG_TAG, "Log - in onCreateLoader() method");
 
+        String dataToFetch = Utils.refreshData(context);
+
         // Create a new loader for the given URL
-        return new EarthquakeLoader(context, uriBuilder.toString());
+        return new EarthquakeLoader(context, dataToFetch);
     }
 
     @Override

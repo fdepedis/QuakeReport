@@ -2,13 +2,14 @@ package it.fdepedis.quakereport.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -124,12 +125,13 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     }
 
     private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(dateObject);
     }
     
     private String formatTime(Date dateObject) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
         return timeFormat.format(dateObject);
     }
 }
