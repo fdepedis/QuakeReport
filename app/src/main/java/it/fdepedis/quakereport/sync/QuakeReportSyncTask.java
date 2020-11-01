@@ -19,15 +19,19 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.net.URL;
 
 public class QuakeReportSyncTask {
 
+    private static final String LOG_TAG = QuakeReportSyncTask.class.getSimpleName();
+
     synchronized public static void syncQuakeReport(Context context) {
 
         try {
+            Log.e(LOG_TAG, "syncQuakeReport: in execution");
            /* URL weatherRequestUrl = NetworkUtils.getUrl(context);
 
             String jsonWeatherResponse = NetworkUtils.getResponseFromHttpUrl(weatherRequestUrl);
