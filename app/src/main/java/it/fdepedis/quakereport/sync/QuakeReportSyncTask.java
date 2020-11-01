@@ -28,7 +28,6 @@ public class QuakeReportSyncTask {
     synchronized public static void syncQuakeReport(Context context) {
 
         try {
-            Toast.makeText(context, "syncQuakeReport in execution", Toast.LENGTH_LONG).show();
            /* URL weatherRequestUrl = NetworkUtils.getUrl(context);
 
             String jsonWeatherResponse = NetworkUtils.getResponseFromHttpUrl(weatherRequestUrl);
