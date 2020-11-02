@@ -50,13 +50,13 @@ public class Utils {
                 .appendQueryParameter("orderby", orderBy)
                 .build();
 
-        //Log.e(LOG_TAG, "uriBuilder: " + uriBuilder.toString() );
+        Log.e(LOG_TAG, "uriBuilder: " + uriBuilder.toString() );
 
         return uriBuilder.toString();
     }
 
     public static URL getURLByTime(Context context) {
-        
+
         Uri uriBuilder = Uri.parse(USGS_REQUEST_URL).buildUpon()
                 .appendQueryParameter("format", "geojson")
                 .appendQueryParameter("limit", "1")

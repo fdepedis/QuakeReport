@@ -28,7 +28,6 @@ public class QuakeReportFirebaseJobService extends JobService {
                 Context context = getApplicationContext();
                 QuakeReportSyncTask.checkQuakeReport(context);
 
-                //Toast.makeText(context, "FirebaseJobService in execution", Toast.LENGTH_LONG).show();
                 jobFinished(jobParameters, false);
                 return null;
             }
