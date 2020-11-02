@@ -21,11 +21,10 @@ public class NotificationUtils {
      */
     private static final int QUAKE_REPORT_NOTIFICATION_ID = 3004;
 
-    public static void notifyUserOfNewWeather(Context context) {
+    public static void notifyUserOfNewQuakeReport(Context context) {
 
-
-       /* Resources resources = context.getResources();
-        int largeArtResourceId = SunshineWeatherUtils
+        Resources resources = context.getResources();
+        /*int largeArtResourceId = SunshineWeatherUtils
                 .getLargeArtResourceIdForWeatherCondition(weatherId);
 
         Bitmap largeIcon = BitmapFactory.decodeResource(

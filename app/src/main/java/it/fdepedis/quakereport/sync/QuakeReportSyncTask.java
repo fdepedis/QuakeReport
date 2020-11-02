@@ -57,14 +57,14 @@ public class QuakeReportSyncTask {
                     context.getString(R.string.settings_min_magnitude_key),
                     context.getString(R.string.settings_min_magnitude_default));
 
-            // se il caso restituito e maggiore o uguale a quello settato nelle preferences
-            // invia una notifica
+            // se viene restituito un valore di magnitudo maggiore o uguale
+            // a quello settato nelle preferences invia una notifica
+            // se abilitata dalle preferences
             if (magnitude >= Double.parseDouble(minMagnitude)){
-                Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica");
+                Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> magnitude: " + magnitude + " >= " + "minMagnitude: " + minMagnitude);
 
                 boolean notificationsEnabled = QuakeReportPreferences.areNotificationsEnabled(context);
                 Log.e(LOG_TAG, "notificationsEnabled: " + notificationsEnabled);
-
 
                 /*
                 long timeSinceLastNotification = SunshinePreferences
@@ -77,7 +77,7 @@ public class QuakeReportSyncTask {
                 }
                 */
                 if (notificationsEnabled) {
-                    NotificationUtils.notifyUserOfNewWeather(context);
+                    NotificationUtils.notifyUserOfNewQuakeReport(context);
                 }
             }
 

@@ -3,10 +3,7 @@ package it.fdepedis.quakereport.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
-
 import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.sync.QuakeReportFirebaseJobService;
 
 public class QuakeReportPreferences {
 

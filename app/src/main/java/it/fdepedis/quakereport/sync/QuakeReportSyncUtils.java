@@ -36,17 +36,13 @@ public class QuakeReportSyncUtils {
 
     private static final String LOG_TAG = QuakeReportSyncUtils.class.getSimpleName();
 
-    //private static final int SYNC_INTERVAL_HOURS = new Time(System.currentTimeMillis()).getHours();
     private static final int SYNC_INTERVAL_MINUTES = new Time(System.currentTimeMillis()).getMinutes();
     private static final int SYNC_INTERVAL_SECONDS = (int) TimeUnit.HOURS.toSeconds(SYNC_INTERVAL_MINUTES);
-    //private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS / 3;
-
     private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS + 5;
-
 
     private static boolean sInitialized;
 
-        private static final String QUAKE_REPORT_SYNC_TAG = "quakereport-sync";
+    private static final String QUAKE_REPORT_SYNC_TAG = "quakereport-sync";
 
     static void scheduleFirebaseJobDispatcherSync(final Context context) {
 
@@ -54,8 +50,8 @@ public class QuakeReportSyncUtils {
         FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
 
         //Log.e(LOG_TAG, "SYNC_INTERVAL_MINUTES: " + SYNC_INTERVAL_MINUTES );
-        Log.e(LOG_TAG, "SYNC_INTERVAL_SECONDS: " + SYNC_INTERVAL_SECONDS );
-        Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
+        //Log.e(LOG_TAG, "SYNC_INTERVAL_SECONDS: " + SYNC_INTERVAL_SECONDS );
+        //Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
 
         Job syncQuakeReportJob = dispatcher.newJobBuilder()
                 .setService(QuakeReportFirebaseJobService.class)

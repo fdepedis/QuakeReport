@@ -19,9 +19,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/adapter/EarthquakeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/adapter/EarthquakeAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/settings/QuakeReportPreferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/settings/QuakeReportPreferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/sync/QuakeReportSyncTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/sync/QuakeReportSyncTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/sync/QuakeReportSyncUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/sync/QuakeReportSyncUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/utils/NotificationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/utils/NotificationUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
