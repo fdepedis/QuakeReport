@@ -57,6 +57,8 @@ public class Utils {
 
     public static URL getURLByTime(Context context) {
 
+        // Costruisci una URL che abbia un solo elemento recente e con
+        // una magnitudine maggiore o uguale a 5 di magnitudo
         Uri uriBuilder = Uri.parse(USGS_REQUEST_URL).buildUpon()
                 .appendQueryParameter("format", "geojson")
                 .appendQueryParameter("limit", "1")

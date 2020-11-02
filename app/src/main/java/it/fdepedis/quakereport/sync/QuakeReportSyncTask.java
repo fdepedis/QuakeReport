@@ -24,6 +24,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.net.URL;
 import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.settings.QuakeReportPreferences;
+import it.fdepedis.quakereport.utils.NotificationUtils;
 import it.fdepedis.quakereport.utils.QueryUtils;
 import it.fdepedis.quakereport.utils.Utils;
 
@@ -55,13 +57,16 @@ public class QuakeReportSyncTask {
                     context.getString(R.string.settings_min_magnitude_key),
                     context.getString(R.string.settings_min_magnitude_default));
 
+            // se il caso restituito e maggiore o uguale a quello settato nelle preferences
+            // invia una notifica
             if (magnitude >= Double.parseDouble(minMagnitude)){
                 Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica");
-            }
 
-            /*
-                boolean notificationsEnabled = SunshinePreferences.areNotificationsEnabled(context);
+                boolean notificationsEnabled = QuakeReportPreferences.areNotificationsEnabled(context);
+                Log.e(LOG_TAG, "notificationsEnabled: " + notificationsEnabled);
 
+
+                /*
                 long timeSinceLastNotification = SunshinePreferences
                         .getEllapsedTimeSinceLastNotification(context);
 
@@ -70,11 +75,11 @@ public class QuakeReportSyncTask {
                 if (timeSinceLastNotification >= DateUtils.DAY_IN_MILLIS) {
                     oneDayPassedSinceLastNotification = true;
                 }
-
-                if (notificationsEnabled && oneDayPassedSinceLastNotification) {
+                */
+                if (notificationsEnabled) {
                     NotificationUtils.notifyUserOfNewWeather(context);
                 }
-            }*/
+            }
 
         } catch (Exception e) {
             /* Server probably invalid */
