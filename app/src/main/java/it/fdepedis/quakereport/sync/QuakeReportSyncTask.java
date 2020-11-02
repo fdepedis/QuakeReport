@@ -15,26 +15,15 @@
  */
 package it.fdepedis.quakereport.sync;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.text.format.DateUtils;
-import android.text.format.Time;
 import android.util.Log;
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.model.Earthquake;
 import it.fdepedis.quakereport.utils.QueryUtils;
 import it.fdepedis.quakereport.utils.Utils;
 
