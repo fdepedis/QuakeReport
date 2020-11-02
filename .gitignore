@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Android Studio
+local.properties
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Generated Files
+.gradle/
+.cxx/
