@@ -43,12 +43,12 @@ public class Utils {
         Log.d(LOG_TAG, "orderBy: " + orderBy );
         Log.d(LOG_TAG, "numItems: " + numItems );
 
-        Uri baseUri = Uri.parse(USGS_REQUEST_URL);
-        Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", numItems);
-        uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        uriBuilder.appendQueryParameter("orderby", orderBy);
+        Uri uriBuilder = Uri.parse(USGS_REQUEST_URL).buildUpon()
+                .appendQueryParameter("format", "geojson")
+                .appendQueryParameter("limit", numItems)
+                .appendQueryParameter("minmag", minMagnitude)
+                .appendQueryParameter("orderby", orderBy)
+                .build();
 
         //Log.e(LOG_TAG, "uriBuilder: " + uriBuilder.toString() );
 
@@ -56,13 +56,13 @@ public class Utils {
     }
 
     public static URL getURLByTime(Context context) {
-        Uri quakeReportQueryUriByTime = Uri.parse(USGS_REQUEST_URL);
-
-        Uri.Builder uriBuilder = quakeReportQueryUriByTime.buildUpon();
-        uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", "1");
-        uriBuilder.appendQueryParameter("minmag", "5");
-        uriBuilder.appendQueryParameter("orderby", "time");
+        
+        Uri uriBuilder = Uri.parse(USGS_REQUEST_URL).buildUpon()
+                .appendQueryParameter("format", "geojson")
+                .appendQueryParameter("limit", "1")
+                .appendQueryParameter("minmag", "5")
+                .appendQueryParameter("orderby", "time")
+                .build();
 
         try{
             URL quakeReportQueryUrlByTime = new URL(uriBuilder.toString());

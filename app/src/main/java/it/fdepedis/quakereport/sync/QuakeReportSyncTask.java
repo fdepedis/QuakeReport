@@ -36,7 +36,7 @@ public class QuakeReportSyncTask {
         try {
             //Log.e(LOG_TAG, "syncQuakeReport: in execution");
 
-            URL quakeReportRequestUrl =Utils.getURLByTime(context);
+            URL quakeReportRequestUrl = Utils.getURLByTime(context);
 
             String queryJSONResponse = QueryUtils.makeHttpRequest(quakeReportRequestUrl);
 
