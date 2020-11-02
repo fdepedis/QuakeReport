@@ -53,7 +53,7 @@ public class QuakeReportSyncUtils {
         Driver driver = new GooglePlayDriver(context);
         FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
 
-        Log.e(LOG_TAG, "SYNC_INTERVAL_MINUTES: " + SYNC_INTERVAL_MINUTES );
+        //Log.e(LOG_TAG, "SYNC_INTERVAL_MINUTES: " + SYNC_INTERVAL_MINUTES );
         Log.e(LOG_TAG, "SYNC_INTERVAL_SECONDS: " + SYNC_INTERVAL_SECONDS );
         Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
 
@@ -71,7 +71,7 @@ public class QuakeReportSyncUtils {
 
         dispatcher.schedule(syncQuakeReportJob);
 
-        Log.e(LOG_TAG, "Scheduled");
+        //Log.e(LOG_TAG, "Scheduled");
     }
 
     synchronized public static void initialize(final Context context) {

@@ -18,39 +18,59 @@ package it.fdepedis.quakereport.sync;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.model.Earthquake;
+import it.fdepedis.quakereport.utils.QueryUtils;
+import it.fdepedis.quakereport.utils.Utils;
 
 public class QuakeReportSyncTask {
 
     private static final String LOG_TAG = QuakeReportSyncTask.class.getSimpleName();
 
-    synchronized public static void syncQuakeReport(Context context) {
+    synchronized public static void checkQuakeReport(Context context) {
 
         try {
-            Log.e(LOG_TAG, "syncQuakeReport: in execution");
-           /* URL weatherRequestUrl = NetworkUtils.getUrl(context);
+            //Log.e(LOG_TAG, "syncQuakeReport: in execution");
 
-            String jsonWeatherResponse = NetworkUtils.getResponseFromHttpUrl(weatherRequestUrl);
+            URL quakeReportRequestUrl =Utils.getURLByTime(context);
 
-            ContentValues[] weatherValues = OpenWeatherJsonUtils
-                    .getWeatherContentValuesFromJson(context, jsonWeatherResponse);
+            String queryJSONResponse = QueryUtils.makeHttpRequest(quakeReportRequestUrl);
 
-            if (weatherValues != null && weatherValues.length != 0) {
-                ContentResolver sunshineContentResolver = context.getContentResolver();
+            JSONObject baseJsonResponse = new JSONObject(queryJSONResponse);
+            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
 
-                sunshineContentResolver.delete(
-                        WeatherContract.WeatherEntry.CONTENT_URI,
-                        null,
-                        null);
+            JSONObject currentEarthquake = earthquakeArray.getJSONObject(0);
+            JSONObject properties = currentEarthquake.getJSONObject("properties");
+            Log.e(LOG_TAG, "properties: " + properties);
 
-                sunshineContentResolver.bulkInsert(
-                        WeatherContract.WeatherEntry.CONTENT_URI,
-                        weatherValues);
+            double magnitude = properties.getDouble("mag");
+            Log.e(LOG_TAG, "magnitude: " + magnitude);
 
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String minMagnitude = sharedPrefs.getString(
+                    context.getString(R.string.settings_min_magnitude_key),
+                    context.getString(R.string.settings_min_magnitude_default));
+
+            if (magnitude >= Double.parseDouble(minMagnitude)){
+                Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica");
+            }
+
+            /*
                 boolean notificationsEnabled = SunshinePreferences.areNotificationsEnabled(context);
 
                 long timeSinceLastNotification = SunshinePreferences

@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.activity.EarthquakeActivity;
 
@@ -47,9 +50,30 @@ public class Utils {
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
-        Log.d(LOG_TAG, "uriBuilder: " + uriBuilder.toString() );
+        //Log.e(LOG_TAG, "uriBuilder: " + uriBuilder.toString() );
 
         return uriBuilder.toString();
+    }
+
+    public static URL getURLByTime(Context context) {
+        Uri quakeReportQueryUriByTime = Uri.parse(USGS_REQUEST_URL);
+
+        Uri.Builder uriBuilder = quakeReportQueryUriByTime.buildUpon();
+        uriBuilder.appendQueryParameter("format", "geojson");
+        uriBuilder.appendQueryParameter("limit", "1");
+        uriBuilder.appendQueryParameter("minmag", "5");
+        uriBuilder.appendQueryParameter("orderby", "time");
+
+        try{
+            URL quakeReportQueryUrlByTime = new URL(uriBuilder.toString());
+            Log.e(LOG_TAG, "quakeReportQueryUrlByTime: " + quakeReportQueryUrlByTime );
+            return quakeReportQueryUrlByTime;
+        } catch (MalformedURLException e){
+            e.printStackTrace();
+            return null;
+        }
+
+
     }
     
 }

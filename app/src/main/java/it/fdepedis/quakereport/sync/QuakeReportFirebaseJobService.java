@@ -26,7 +26,7 @@ public class QuakeReportFirebaseJobService extends JobService {
             protected Void doInBackground(Void... voids) {
                 Log.e(LOG_TAG, "doInBackground: FirebaseJobService in execution");
                 Context context = getApplicationContext();
-                QuakeReportSyncTask.syncQuakeReport(context);
+                QuakeReportSyncTask.checkQuakeReport(context);
 
                 //Toast.makeText(context, "FirebaseJobService in execution", Toast.LENGTH_LONG).show();
                 jobFinished(jobParameters, false);
