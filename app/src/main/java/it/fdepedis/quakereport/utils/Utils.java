@@ -8,15 +8,20 @@ import android.util.Log;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import androidx.core.content.ContextCompat;
 import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.activity.EarthquakeActivity;
-
-import static java.lang.String.valueOf;
+import android.content.Context;
+import android.view.View;
 
 public class Utils {
 
     private static final String LOG_TAG = Utils.class.getName();
+
+    public static Context context;
 
     private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
     //"http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
@@ -74,8 +79,60 @@ public class Utils {
             e.printStackTrace();
             return null;
         }
-
-
     }
-    
+
+    public static String formatMagnitude(double magnitude) {
+        DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
+        return magnitudeFormat.format(magnitude);
+    }
+
+    public static String formatDate(Date dateObject) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(dateObject);
+    }
+
+    public static String formatTime(Date dateObject) {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+        return timeFormat.format(dateObject);
+    }
+
+    public static int getMagnitudeColor(Context context, double magnitude) {
+        int magnitudeColorResourceId;
+        int magnitudeFloor = (int) Math.floor(magnitude);
+        switch (magnitudeFloor) {
+            case 0:
+            case 1:
+                magnitudeColorResourceId = R.color.magnitude1;
+                break;
+            case 2:
+                magnitudeColorResourceId = R.color.magnitude2;
+                break;
+            case 3:
+                magnitudeColorResourceId = R.color.magnitude3;
+                break;
+            case 4:
+                magnitudeColorResourceId = R.color.magnitude4;
+                break;
+            case 5:
+                magnitudeColorResourceId = R.color.magnitude5;
+                break;
+            case 6:
+                magnitudeColorResourceId = R.color.magnitude6;
+                break;
+            case 7:
+                magnitudeColorResourceId = R.color.magnitude7;
+                break;
+            case 8:
+                magnitudeColorResourceId = R.color.magnitude8;
+                break;
+            case 9:
+                magnitudeColorResourceId = R.color.magnitude9;
+                break;
+            default:
+                magnitudeColorResourceId = R.color.magnitude10plus;
+                break;
+        }
+        return ContextCompat.getColor(context, magnitudeColorResourceId);
+    }
 }
