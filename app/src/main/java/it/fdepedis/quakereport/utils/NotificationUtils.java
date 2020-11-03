@@ -35,20 +35,15 @@ public class NotificationUtils {
     public static void notifyUserOfNewQuakeReport(Context context, double magnitude, String place, long time, String url) {
 
         Resources resources = context.getResources();
-
         int largeArtResourceId = R.mipmap.ic_launcher;
+        int smallArtResourceId = R.drawable.ic_notification;
 
         Bitmap largeIcon = BitmapFactory.decodeResource(
                 resources,
                 largeArtResourceId);
 
         String notificationTitle = context.getString(R.string.app_name);
-
         String notificationText = place;
-
-        /* getSmallArtResourceIdForWeatherCondition returns the proper art to show given an ID */
-        /*int smallArtResourceId = SunshineWeatherUtils
-                .getSmallArtResourceIdForWeatherCondition(weatherId);*/
 
         /*
          * NotificationCompat Builder is a very convenient way to build backward-compatible
@@ -72,7 +67,6 @@ public class NotificationUtils {
 
             Uri earthquakeUri = Uri.parse(url);
             Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
-            //context.startActivity(websiteIntent);
 
             // Create an explicit intent for an Activity in your app
             //Intent intent = new Intent(this, AlertDetails.class);
@@ -81,11 +75,11 @@ public class NotificationUtils {
 
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, String.valueOf(QUAKE_REPORT_NOTIFICATION_ID))
                     .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                    //.setSmallIcon(Utils.getMagnitudeColor(context, magnitude))
-                    .setSmallIcon(R.drawable.ic_notification)
+                    .setSmallIcon(smallArtResourceId)
                     .setLargeIcon(largeIcon)
                     .setContentTitle(notificationTitle)
                     .setContentText(notificationText)
+                    .setContentIntent(pendingIntent)
                     .setAutoCancel(true)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
