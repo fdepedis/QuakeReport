@@ -36,16 +36,11 @@ public class NotificationUtils {
 
         Resources resources = context.getResources();
 
-        /*GradientDrawable magnitudeCircle = (GradientDrawable) magnitudeView.getBackground();
-        int magnitudeColor = Utils.getMagnitudeColor(getContext(), currentEarthquake.getMagnitude());
-        magnitudeCircle.setColor(magnitudeColor);*/
-
-        /*int largeArtResourceId = SunshineWeatherUtils
-                .getLargeArtResourceIdForWeatherCondition(weatherId);
+        int largeArtResourceId = R.mipmap.ic_launcher;
 
         Bitmap largeIcon = BitmapFactory.decodeResource(
                 resources,
-                largeArtResourceId);*/
+                largeArtResourceId);
 
         String notificationTitle = context.getString(R.string.app_name);
 
@@ -86,8 +81,9 @@ public class NotificationUtils {
 
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, String.valueOf(QUAKE_REPORT_NOTIFICATION_ID))
                     .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                    //.setSmallIcon(smallArtResourceId)
-                    //.setLargeIcon(largeIcon)
+                    //.setSmallIcon(Utils.getMagnitudeColor(context, magnitude))
+                    .setSmallIcon(R.drawable.ic_notification)
+                    .setLargeIcon(largeIcon)
                     .setContentTitle(notificationTitle)
                     .setContentText(notificationText)
                     .setAutoCancel(true)
