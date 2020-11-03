@@ -1,6 +1,7 @@
 package it.fdepedis.quakereport.utils;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -14,6 +15,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.sync.QuakeReportSyncTask;
@@ -63,21 +66,42 @@ public class NotificationUtils {
 
             Log.e(LOG_TAG, "notifications???");
 
-            Notification.Builder notificationBuilder = new Notification.Builder(context)
+            CharSequence name = context.getString(R.string.app_name);
+            String description = context.getString(R.string.app_name);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(String.valueOf(QUAKE_REPORT_NOTIFICATION_ID), name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+
+            Uri earthquakeUri = Uri.parse(url);
+            Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
+            //context.startActivity(websiteIntent);
+
+            // Create an explicit intent for an Activity in your app
+            //Intent intent = new Intent(this, AlertDetails.class);
+            websiteIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, websiteIntent, 0);
+
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, String.valueOf(QUAKE_REPORT_NOTIFICATION_ID))
                     .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
                     //.setSmallIcon(smallArtResourceId)
                     //.setLargeIcon(largeIcon)
                     .setContentTitle(notificationTitle)
                     .setContentText(notificationText)
-                    .setAutoCancel(true);
+                    .setAutoCancel(true)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             /*
              * This Intent will be triggered when the user clicks the notification. In our case,
              * we want to open Sunshine to the DetailActivity to display the newly updated weather.
              */
             /*Intent detailIntentForToday = new Intent(context, DetailActivity.class);
-            detailIntentForToday.setData(todaysWeatherUri);
+            detailIntentForToday.setData(todaysWeatherUri);*/
 
+
+            /*
             TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
             taskStackBuilder.addNextIntentWithParentStack(detailIntentForToday);
             PendingIntent resultPendingIntent = taskStackBuilder
@@ -86,11 +110,13 @@ public class NotificationUtils {
             notificationBuilder.setContentIntent(resultPendingIntent);
             */
 
-            NotificationManager notificationManager = (NotificationManager)
-                    context.getSystemService(Context.NOTIFICATION_SERVICE);
+            /*NotificationManager notificationManager = (NotificationManager)
+                    context.getSystemService(Context.NOTIFICATION_SERVICE);*/
+
+            NotificationManagerCompat notification = NotificationManagerCompat.from(context);
 
             /* WEATHER_NOTIFICATION_ID allows you to update or cancel the notification later on */
-            notificationManager.notify(QUAKE_REPORT_NOTIFICATION_ID, notificationBuilder.build());
+            notification.notify(QUAKE_REPORT_NOTIFICATION_ID, notificationBuilder.build());
 
             /*
              * Since we just showed a notification, save the current time. That way, we can check
