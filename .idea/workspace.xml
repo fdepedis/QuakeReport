@@ -11,15 +11,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0896df6-2b34-4c1c-9bbb-83effd77c167" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_stat_album.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_stat_album.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_stat_album.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_stat_album.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_stat_album.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/utils/NotificationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/utils/NotificationUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notification.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/settings_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/settings_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +40,7 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_28_x86" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="8d7e9227" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -84,7 +95,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="Nexus_5X_Flax_API_25" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
@@ -92,6 +103,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\01_Android\AndroidProjects\QuakeReport\app\src\main\res" />
       <recent name="C:\Projects\01_Android\AndroidProjects\QuakeReport\app\src\main\res\drawable" />
       <recent name="C:\Projects\Android\QuakeReport\app\src\main\res\drawable" />
       <recent name="C:\Projects\Android\QuakeReport\app\src\main\res\mipmap-hdpi" />
@@ -322,28 +334,28 @@
     </state>
     <state x="2659" y="262" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604424988254" />
     <state x="-1181" y="262" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602660282732" />
-    <state width="1877" height="461" key="GridCell.Tab.0.bottom" timestamp="1604426432029">
+    <state width="1877" height="330" key="GridCell.Tab.0.bottom" timestamp="1604436145883">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="461" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604426432029" />
+    <state width="1877" height="330" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604436145883" />
     <state width="1491" height="325" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604388854187" />
     <state width="1877" height="290" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651254" />
-    <state width="1877" height="461" key="GridCell.Tab.0.center" timestamp="1604426432029">
+    <state width="1877" height="330" key="GridCell.Tab.0.center" timestamp="1604436145883">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="461" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604426432029" />
+    <state width="1877" height="330" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604436145883" />
     <state width="1491" height="325" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604388854187" />
     <state width="1877" height="290" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651254" />
-    <state width="1877" height="461" key="GridCell.Tab.0.left" timestamp="1604426432029">
+    <state width="1877" height="330" key="GridCell.Tab.0.left" timestamp="1604436145883">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="461" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604426432029" />
+    <state width="1877" height="330" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604436145883" />
     <state width="1491" height="325" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604388854187" />
     <state width="1877" height="290" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651253" />
-    <state width="1877" height="461" key="GridCell.Tab.0.right" timestamp="1604426432029">
+    <state width="1877" height="330" key="GridCell.Tab.0.right" timestamp="1604436145883">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="461" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604426432029" />
+    <state width="1877" height="330" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604436145883" />
     <state width="1491" height="325" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604388854187" />
     <state width="1877" height="290" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651254" />
     <state x="-1287" y="219" width="657" height="602" key="NewModule_or_Project.wizard" timestamp="1602517037001">
@@ -359,10 +371,10 @@
     </state>
     <state x="2817" y="89" width="1022" height="813" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604390030944" />
     <state x="-1264" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602670300895" />
-    <state width="375" height="161" key="javadoc.popup.new" timestamp="1604428243704">
+    <state width="375" height="161" key="javadoc.popup.new" timestamp="1604431202242">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="375" height="161" key="javadoc.popup.new/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604428243704" />
+    <state width="375" height="161" key="javadoc.popup.new/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604431202242" />
     <state width="300" height="127" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1604305990328" />
   </component>
 </project>
