@@ -24,6 +24,7 @@ public class NotificationUtils {
     public static void notifyUserOfNewQuakeReport(Context context) {
 
         Resources resources = context.getResources();
+
         /*int largeArtResourceId = SunshineWeatherUtils
                 .getLargeArtResourceIdForWeatherCondition(weatherId);
 

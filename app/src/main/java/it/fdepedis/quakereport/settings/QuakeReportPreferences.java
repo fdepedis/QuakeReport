@@ -9,7 +9,7 @@ public class QuakeReportPreferences {
 
     private static final String LOG_TAG = QuakeReportPreferences.class.getSimpleName();
 
-    public static boolean areNotificationsEnabled(Context context) {
+    public static boolean isNotificationsEnabled(Context context) {
 
         String displayNotificationsKey = context.getString(R.string.pref_enable_notifications_key);
 
@@ -24,4 +24,14 @@ public class QuakeReportPreferences {
 
         return shouldDisplayNotifications;
     }
+
+    public static String getMinMagnitudePreferences(Context context) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String minMagnitude = sharedPrefs.getString(
+                context.getString(R.string.settings_min_magnitude_key),
+                context.getString(R.string.settings_min_magnitude_default));
+
+        return minMagnitude;
+    }
+
 }

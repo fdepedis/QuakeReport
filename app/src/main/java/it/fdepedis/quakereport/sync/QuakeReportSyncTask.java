@@ -52,10 +52,7 @@ public class QuakeReportSyncTask {
             double magnitude = properties.getDouble("mag");
             Log.e(LOG_TAG, "magnitude: " + magnitude);
 
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String minMagnitude = sharedPrefs.getString(
-                    context.getString(R.string.settings_min_magnitude_key),
-                    context.getString(R.string.settings_min_magnitude_default));
+            String minMagnitude = QuakeReportPreferences.getMinMagnitudePreferences(context);
 
             // se viene restituito un valore di magnitudo maggiore o uguale
             // a quello settato nelle preferences invia una notifica
@@ -63,7 +60,7 @@ public class QuakeReportSyncTask {
             if (magnitude >= Double.parseDouble(minMagnitude)){
                 Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> magnitude: " + magnitude + " >= " + "minMagnitude: " + minMagnitude);
 
-                boolean notificationsEnabled = QuakeReportPreferences.areNotificationsEnabled(context);
+                boolean notificationsEnabled = QuakeReportPreferences.isNotificationsEnabled(context);
                 Log.e(LOG_TAG, "notificationsEnabled: " + notificationsEnabled);
 
                 /*
