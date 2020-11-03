@@ -16,10 +16,6 @@
 package it.fdepedis.quakereport.sync;
 
 import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.util.Log;
 
 import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.Driver;
@@ -32,9 +28,9 @@ import com.firebase.jobdispatcher.Trigger;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
-public class QuakeReportSyncUtils {
+public class EarthquakeSyncUtils {
 
-    private static final String LOG_TAG = QuakeReportSyncUtils.class.getSimpleName();
+    private static final String LOG_TAG = EarthquakeSyncUtils.class.getSimpleName();
 
     private static final int SYNC_INTERVAL_MINUTES = new Time(System.currentTimeMillis()).getMinutes();
     private static final int SYNC_INTERVAL_SECONDS = (int) TimeUnit.HOURS.toSeconds(SYNC_INTERVAL_MINUTES);
@@ -54,7 +50,7 @@ public class QuakeReportSyncUtils {
         //Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
 
         Job syncQuakeReportJob = dispatcher.newJobBuilder()
-                .setService(QuakeReportFirebaseJobService.class)
+                .setService(EarthquakeFirebaseJobService.class)
                 .setTag(QUAKE_REPORT_SYNC_TAG)
                 .setConstraints(Constraint.ON_ANY_NETWORK)
                 .setLifetime(Lifetime.FOREVER)

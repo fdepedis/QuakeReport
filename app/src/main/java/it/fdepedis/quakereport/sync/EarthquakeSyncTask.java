@@ -17,21 +17,19 @@ package it.fdepedis.quakereport.sync;
 
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.net.URL;
-import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.settings.QuakeReportPreferences;
+
+import it.fdepedis.quakereport.settings.EarthquakePreferences;
 import it.fdepedis.quakereport.utils.NotificationUtils;
 import it.fdepedis.quakereport.utils.QueryUtils;
 import it.fdepedis.quakereport.utils.Utils;
 
-public class QuakeReportSyncTask {
+public class EarthquakeSyncTask {
 
-    private static final String LOG_TAG = QuakeReportSyncTask.class.getSimpleName();
+    private static final String LOG_TAG = EarthquakeSyncTask.class.getSimpleName();
 
     synchronized public static void checkQuakeReport(Context context) {
 
@@ -61,7 +59,7 @@ public class QuakeReportSyncTask {
             String url = properties.getString("url");
             Log.e(LOG_TAG, "url: " + url);
 
-            String minMagnitude = QuakeReportPreferences.getMinMagnitudePreferences(context);
+            String minMagnitude = EarthquakePreferences.getMinMagnitudePreferences(context);
 
             // se viene restituito un valore di magnitudo maggiore o uguale
             // a quello settato nelle preferences invia una notifica
@@ -69,7 +67,7 @@ public class QuakeReportSyncTask {
             if (magnitude >= Double.parseDouble(minMagnitude)){
                 Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> magnitude: " + magnitude + " >= " + "minMagnitude: " + minMagnitude);
 
-                boolean notificationsEnabled = QuakeReportPreferences.isNotificationsEnabled(context);
+                boolean notificationsEnabled = EarthquakePreferences.isNotificationsEnabled(context);
                 Log.e(LOG_TAG, "notificationsEnabled: " + notificationsEnabled);
 
                 /*

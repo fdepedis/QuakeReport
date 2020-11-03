@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import it.fdepedis.quakereport.R;
 
-public class QuakeReportPreferences {
+public class EarthquakePreferences {
 
-    private static final String LOG_TAG = QuakeReportPreferences.class.getSimpleName();
+    private static final String LOG_TAG = EarthquakePreferences.class.getSimpleName();
 
     public static boolean isNotificationsEnabled(Context context) {
 

@@ -9,9 +9,9 @@ import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 
 
-public class QuakeReportFirebaseJobService extends JobService {
+public class EarthquakeFirebaseJobService extends JobService {
 
-    private static final String LOG_TAG = QuakeReportFirebaseJobService.class.getSimpleName();
+    private static final String LOG_TAG = EarthquakeFirebaseJobService.class.getSimpleName();
 
     private AsyncTask<Void, Void, Void> mFetchQuakeReportTask;
 
@@ -24,7 +24,7 @@ public class QuakeReportFirebaseJobService extends JobService {
             protected Void doInBackground(Void... voids) {
                 Log.e(LOG_TAG, "doInBackground: FirebaseJobService in execution");
                 Context context = getApplicationContext();
-                QuakeReportSyncTask.checkQuakeReport(context);
+                EarthquakeSyncTask.checkQuakeReport(context);
 
                 jobFinished(jobParameters, false);
                 return null;
