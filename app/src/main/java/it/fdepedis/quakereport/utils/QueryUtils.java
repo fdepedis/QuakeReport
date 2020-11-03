@@ -58,7 +58,7 @@ public final class QueryUtils {
     /**
      * Returns new URL object from the given string URL.
      */
-    private static URL createUrl(String stringUrl) {
+    public static URL createUrl(String stringUrl) {
         URL url = null;
         try {
             url = new URL(stringUrl);
@@ -71,7 +71,7 @@ public final class QueryUtils {
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
-    private static String makeHttpRequest(URL url) throws IOException {
+    public static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
         // If the URL is null, then return early.
@@ -134,7 +134,7 @@ public final class QueryUtils {
      * Return a list of {@link Earthquake} objects that has been built up from
      * parsing the given JSON response.
      */
-    private static List<Earthquake> extractFeatureFromJson(String earthquakeJSON) {
+    public static List<Earthquake> extractFeatureFromJson(String earthquakeJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(earthquakeJSON)) {
             return null;

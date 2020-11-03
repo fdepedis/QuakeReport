@@ -25,6 +25,7 @@ import it.fdepedis.quakereport.loader.EarthquakeLoader;
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.settings.SettingsActivity;
 import it.fdepedis.quakereport.model.Earthquake;
+import it.fdepedis.quakereport.sync.EarthquakeSyncUtils;
 import it.fdepedis.quakereport.utils.Utils;
 
 public class EarthquakeActivity extends AppCompatActivity
@@ -101,6 +102,8 @@ public class EarthquakeActivity extends AppCompatActivity
             loadingIndicator.setVisibility(View.GONE);
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+
+        EarthquakeSyncUtils.initialize(context);
     }
 
     @Override
