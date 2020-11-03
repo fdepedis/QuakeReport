@@ -68,7 +68,7 @@ public class NotificationUtils {
                     .setContentTitle(notificationTitle)
                     .setContentText(notificationText)
                     .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 }) //Vibration
-                    .setLights(Color.RED, 3000, 3000) //LED
+                    //.setLights(Color.RED, 3000, 3000) //LED
                     .setContentIntent(pendingIntent)
                     .setAutoCancel(true)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);

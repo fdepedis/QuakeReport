@@ -3,6 +3,7 @@
     android:title="@string/settings_title">
 
     <PreferenceCategory android:title="General">
+
         <ListPreference
             android:defaultValue="@string/settings_order_by_default"
             android:entries="@array/settings_order_by_labels"
@@ -35,5 +36,13 @@
             android:summaryOn="@string/pref_enable_notifications_true"
             android:title="@string/pref_enable_notifications_label" />
 
+        <EditTextPreference
+            android:defaultValue="@string/settings_min_mag_notify_default"
+            android:inputType="numberDecimal"
+            android:key="@string/settings_min_mag_notify_key"
+            android:selectAllOnFocus="true"
+            android:title="@string/settings_min_mag_notify_label" />
+
     </PreferenceCategory>
+
 </PreferenceScreen>
