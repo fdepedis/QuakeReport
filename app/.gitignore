@@ -1,1 +1,13 @@
 /build
+
+# Android Studio
+local.properties
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Generated Files
+.gradle/
+.cxx/

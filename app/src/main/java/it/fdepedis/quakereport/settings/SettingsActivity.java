@@ -2,17 +2,23 @@ package it.fdepedis.quakereport.settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.activity.EarthquakeActivity;
+import it.fdepedis.quakereport.utils.NotificationUtils;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = SettingsActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference numItems = findPreference(getString(R.string.settings_num_item_key));
             bindPreferenceSummaryToValue(numItems);
+
+            Preference minMagNotify = findPreference(getString(R.string.settings_min_mag_notify_key));
+            bindPreferenceSummaryToValue(minMagNotify);
         }
 
         @Override
@@ -53,8 +62,9 @@ public class SettingsActivity extends AppCompatActivity {
                     CharSequence[] labels = listPreference.getEntries();
                     preference.setSummary(labels[prefIndex]);
                 }
-            }
-            else{
+            } else if (preference instanceof CheckBoxPreference) {
+                preference.setSummary(stringValue);
+            } else {
                 preference.setSummary(stringValue);
             }
             return true;
@@ -65,7 +75,6 @@ public class SettingsActivity extends AppCompatActivity {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(preference.getContext());
             String preferenceString = preferences.getString(preference.getKey(), "");
             onPreferenceChange(preference, preferenceString);
-
         }
     }
 
