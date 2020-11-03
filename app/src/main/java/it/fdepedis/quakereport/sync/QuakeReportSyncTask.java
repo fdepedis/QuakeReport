@@ -52,6 +52,15 @@ public class QuakeReportSyncTask {
             double magnitude = properties.getDouble("mag");
             Log.e(LOG_TAG, "magnitude: " + magnitude);
 
+            String place = properties.getString("place");
+            Log.e(LOG_TAG, "place: " + place);
+
+            long time = properties.getLong("time");
+            Log.e(LOG_TAG, "time: " + time);
+
+            String url = properties.getString("url");
+            Log.e(LOG_TAG, "url: " + url);
+
             String minMagnitude = QuakeReportPreferences.getMinMagnitudePreferences(context);
 
             // se viene restituito un valore di magnitudo maggiore o uguale
@@ -74,7 +83,7 @@ public class QuakeReportSyncTask {
                 }
                 */
                 if (notificationsEnabled) {
-                    NotificationUtils.notifyUserOfNewQuakeReport(context);
+                    NotificationUtils.notifyUserOfNewQuakeReport(context, magnitude, place, time, url);
                 }
             }
 
