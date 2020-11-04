@@ -11,8 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0896df6-2b34-4c1c-9bbb-83effd77c167" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/activity/EarthquakeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/activity/EarthquakeActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/activity/EarthquakeDetailActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_earthquake_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +94,9 @@
     </key>
     <key name="android.template.packageName">
       <recent name="com.example.android.quakereport" />
+    </key>
+    <key name="android.template.-2046015800">
+      <recent name="it.fdepedis.quakereport" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\fdepedis\Develop\myproject\QuakeReport\app\src\main\res\xml" />
@@ -353,10 +358,10 @@
     </state>
     <state x="2817" y="89" width="1022" height="813" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604441903685" />
     <state x="-1264" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602670300895" />
-    <state width="375" height="161" key="javadoc.popup.new" timestamp="1604496175679">
+    <state width="375" height="161" key="javadoc.popup.new" timestamp="1604503453767">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="375" height="161" key="javadoc.popup.new/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604496175679" />
+    <state width="375" height="161" key="javadoc.popup.new/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604503453767" />
     <state width="300" height="127" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1604305990328" />
   </component>
 </project>

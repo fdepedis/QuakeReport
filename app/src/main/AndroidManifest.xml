@@ -11,6 +11,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".activity.EarthquakeDetailActivity"
+            android:label="@string/earthquake_detail_label"
+            android:parentActivityName=".activity.EarthquakeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.EarthquakeActivity" />
+        </activity>
         <activity
             android:name=".activity.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
@@ -20,9 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.EarthquakeActivity" />
-
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/settings_title">
@@ -35,10 +42,9 @@
             android:name=".sync.EarthquakeFirebaseJobService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>
