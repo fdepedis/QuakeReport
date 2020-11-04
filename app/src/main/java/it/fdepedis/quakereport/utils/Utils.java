@@ -30,15 +30,9 @@ public class Utils {
     //"http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
 
     public static String refreshData(Context context){
-        //new EarthquakeLoader(context, uriBuilder.toString());
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        //String minMagnitude = sharedPrefs.getString(valueOf(R.string.settings_min_magnitude_key), valueOf(R.string.settings_min_magnitude_default));
 
         String minMagnitude = EarthquakePreferences.getMinMagnitudePreferences(context);
-
         String orderBy = EarthquakePreferences.getOrderByPreferences(context);
-
         String numItems = EarthquakePreferences.getNumItemsPreferences(context);
 
         Log.d(LOG_TAG, "minMagnitude: " + minMagnitude );
