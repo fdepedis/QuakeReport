@@ -28,10 +28,10 @@ public class Earthquake implements Serializable {
     private String mUrl;
 
     public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
-        mMagnitude = magnitude;
-        mLocation = location;
-        mTimeInMilliseconds = timeInMilliseconds;
-        mUrl = url;
+        this.mMagnitude = magnitude;
+        this.mLocation = location;
+        this.mTimeInMilliseconds = timeInMilliseconds;
+        this.mUrl = url;
     }
 
     public double getMagnitude() {

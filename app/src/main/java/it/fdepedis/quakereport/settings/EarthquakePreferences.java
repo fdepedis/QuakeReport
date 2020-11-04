@@ -29,6 +29,18 @@ public class EarthquakePreferences {
     }
 
     /**
+     * Get Min Magnitude Notification in Notification -> Preferences
+     * */
+    public static String getMinMagNotificationPreferences(Context context) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String minMagNotification = sharedPrefs.getString(
+                context.getString(R.string.settings_min_mag_notify_key),
+                context.getString(R.string.settings_min_mag_notify_default));
+
+        return minMagNotification;
+    }
+
+    /**
      * Get Min Magnitude in General -> Preferences
      * */
     public static String getMinMagnitudePreferences(Context context) {
@@ -62,18 +74,6 @@ public class EarthquakePreferences {
                 context.getString(R.string.settings_num_item_default));
 
         return numItems;
-    }
-
-    /**
-     * Get Min Magnitude Notification in Notification -> Preferences
-     * */
-    public static String getMinMagNotificationPreferences(Context context) {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String minMagNotification = sharedPrefs.getString(
-                context.getString(R.string.settings_min_mag_notify_key),
-                context.getString(R.string.settings_min_mag_notify_default));
-
-        return minMagNotification;
     }
 
 }
