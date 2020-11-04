@@ -65,6 +65,11 @@ public class EarthquakeActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 Earthquake currentEarthquake = mAdapter.getItem(position);
+
+                /*
+                Intent intent = new Intent(EarthquakeActivity.this, EarthquakeDetailActivity.class);
+                intent.putExtra("currentEarthquake", currentEarthquake);
+                */
                 Uri earthquakeUri = Uri.parse(currentEarthquake.getUrl());
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
                 startActivity(websiteIntent);
