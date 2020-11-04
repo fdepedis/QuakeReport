@@ -4,10 +4,10 @@
 local.properties
 
 # IntelliJ IDEA
-.idea/
+*.idea/
 *.iml
 *.iws
 
 # Generated Files
-.gradle/
-.cxx/
+*.gradle/
+*.cxx/
