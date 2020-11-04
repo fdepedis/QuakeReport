@@ -38,6 +38,7 @@
 
         <EditTextPreference
             android:defaultValue="@string/settings_min_mag_notify_default"
+            android:dependency="@string/pref_enable_notifications_key"
             android:inputType="numberDecimal"
             android:key="@string/settings_min_mag_notify_key"
             android:selectAllOnFocus="true"
