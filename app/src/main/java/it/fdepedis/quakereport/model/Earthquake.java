@@ -15,10 +15,12 @@
  */
 package it.fdepedis.quakereport.model;
 
+import java.io.Serializable;
+
 /**
  * An {@link Earthquake} object contains information related to a single earthquake.
  */
-public class Earthquake {
+public class Earthquake implements Serializable {
 
     private double mMagnitude;
     private String mLocation;
