@@ -18,8 +18,10 @@ package it.fdepedis.quakereport.sync;
 
 import android.content.Context;
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.net.URL;
 
 import it.fdepedis.quakereport.settings.EarthquakePreferences;
@@ -36,39 +38,43 @@ public class EarthquakeSyncTask {
         try {
             //Log.e(LOG_TAG, "syncQuakeReport: in execution");
 
-            URL quakeReportRequestUrl = Utils.getURLByTime(context);
+            boolean notificationsEnabled = EarthquakePreferences.isNotificationsEnabled(context);
+            Log.e(LOG_TAG, "notificationsEnabled: " + notificationsEnabled);
 
-            String queryJSONResponse = QueryUtils.makeHttpRequest(quakeReportRequestUrl);
+            if (notificationsEnabled) {
 
-            JSONObject baseJsonResponse = new JSONObject(queryJSONResponse);
-            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
+                URL quakeReportRequestUrl = Utils.getNotificationURLByTime(context);
 
-            JSONObject currentEarthquake = earthquakeArray.getJSONObject(0);
-            JSONObject properties = currentEarthquake.getJSONObject("properties");
-            Log.e(LOG_TAG, "properties: " + properties);
+                String queryJSONResponse = QueryUtils.makeHttpRequest(quakeReportRequestUrl);
 
-            double magnitude = properties.getDouble("mag");
-            Log.e(LOG_TAG, "magnitude: " + magnitude);
+                JSONObject baseJsonResponse = new JSONObject(queryJSONResponse);
+                JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
 
-            String place = properties.getString("place");
-            Log.e(LOG_TAG, "place: " + place);
+                JSONObject currentEarthquake = earthquakeArray.getJSONObject(0);
+                JSONObject properties = currentEarthquake.getJSONObject("properties");
+                Log.e(LOG_TAG, "properties: " + properties);
 
-            long time = properties.getLong("time");
-            Log.e(LOG_TAG, "time: " + time);
+                double currMagNotification = properties.getDouble("mag");
+                Log.e(LOG_TAG, "currMagNotification: " + currMagNotification);
 
-            String url = properties.getString("url");
-            Log.e(LOG_TAG, "url: " + url);
+                String currPlace = properties.getString("place");
+                Log.e(LOG_TAG, "currPlace: " + currPlace);
 
-            String minMagnitude = EarthquakePreferences.getMinMagnitudePreferences(context);
+                long currTime = properties.getLong("time");
+                Log.e(LOG_TAG, "currTime: " + currTime);
 
-            // se viene restituito un valore di magnitudo maggiore o uguale
-            // a quello settato nelle preferences invia una notifica
-            // se abilitata dalle preferences
-            if (magnitude >= Double.parseDouble(minMagnitude)){
-                Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> magnitude: " + magnitude + " >= " + "minMagnitude: " + minMagnitude);
+                String url = properties.getString("url");
+                Log.e(LOG_TAG, "url: " + url);
 
-                boolean notificationsEnabled = EarthquakePreferences.isNotificationsEnabled(context);
-                Log.e(LOG_TAG, "notificationsEnabled: " + notificationsEnabled);
+                String minMagnitude = EarthquakePreferences.getMinMagnitudePreferences(context);
+
+                // se viene restituito un valore di magnitudo maggiore o uguale
+                // a quello settato nelle preferences invia una notifica
+                // se abilitata dalle preferences
+                if (currMagNotification >= Double.parseDouble(minMagnitude)) {
+                    Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> currMagNotification: " + currMagNotification + " >= " + "minMagnitude: " + minMagnitude);
+
+                    NotificationUtils.notifyUserOfNewQuakeReport(context, currMagNotification, currPlace, currTime, url);
 
                 /*
                 long timeSinceLastNotification = SunshinePreferences
@@ -80,11 +86,8 @@ public class EarthquakeSyncTask {
                     oneDayPassedSinceLastNotification = true;
                 }
                 */
-                if (notificationsEnabled) {
-                    NotificationUtils.notifyUserOfNewQuakeReport(context, magnitude, place, time, url);
                 }
             }
-
         } catch (Exception e) {
             /* Server probably invalid */
             e.printStackTrace();

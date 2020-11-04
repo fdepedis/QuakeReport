@@ -14,6 +14,8 @@ import java.util.Date;
 
 import androidx.core.content.ContextCompat;
 import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.settings.EarthquakePreferences;
+
 import android.content.Context;
 import android.view.View;
 
@@ -23,6 +25,7 @@ public class Utils {
 
     public static Context context;
 
+    private static final String LIMIT = "1";
     private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
     //"http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
 
@@ -60,21 +63,23 @@ public class Utils {
         return uriBuilder.toString();
     }
 
-    public static URL getURLByTime(Context context) {
+    public static URL getNotificationURLByTime(Context context) {
+
+        String minMagNotification = EarthquakePreferences.getMinMagNotificationPreferences(context);
 
         // Costruisci una URL che abbia un solo elemento recente e con
-        // una magnitudine maggiore o uguale a 5 di magnitudo
+        // una magnitudine di notifica indicata nelle preferences
         Uri uriBuilder = Uri.parse(USGS_REQUEST_URL).buildUpon()
                 .appendQueryParameter("format", "geojson")
-                .appendQueryParameter("limit", "1")
-                .appendQueryParameter("minmag", "5")
+                .appendQueryParameter("limit", LIMIT)
+                .appendQueryParameter("minmag", minMagNotification)
                 .appendQueryParameter("orderby", "time")
                 .build();
 
         try{
-            URL quakeReportQueryUrlByTime = new URL(uriBuilder.toString());
-            Log.e(LOG_TAG, "quakeReportQueryUrlByTime: " + quakeReportQueryUrlByTime );
-            return quakeReportQueryUrlByTime;
+            URL quakeReportNotificationQueryUrlByTime = new URL(uriBuilder.toString());
+            Log.e(LOG_TAG, "quakeReportNotificationQueryUrlByTime: " + quakeReportNotificationQueryUrlByTime );
+            return quakeReportNotificationQueryUrlByTime;
         } catch (MalformedURLException e){
             e.printStackTrace();
             return null;
