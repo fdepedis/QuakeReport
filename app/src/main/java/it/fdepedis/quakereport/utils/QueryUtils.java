@@ -159,22 +159,57 @@ public final class QueryUtils {
                 JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
 
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
+                Log.e(LOG_TAG, "properties: " + properties);
 
-                // Extract the value for the key called "mag"
                 double magnitude = properties.getDouble("mag");
-
-                // Extract the value for the key called "place"
                 String location = properties.getString("place");
-
-                // Extract the value for the key called "time"
                 long time = properties.getLong("time");
-
-                // Extract the value for the key called "url"
                 String url = properties.getString("url");
 
-                // Create a new {@link Earthquake} object with the magnitude, location, time,
-                // and url from the JSON response.
-                Earthquake earthquake = new Earthquake(magnitude, location, time, url);
+                long updateInMilliseconds = 111111111;
+                String tz = null;
+                String detail = null;
+                String felt = null;
+                String cdi = null;
+                double mmi = 0.0;
+                String alert = null;
+                String status = null;
+                double tsunami = 0.0;
+                double sig = 0.0;
+                String net = null;
+                String code = null;
+                String ids = null;
+                String sources = null;
+                double dmin = 0.0;
+                double rms = 0.0;
+                double gap = 0.0;
+                String magType = null;
+                String type = null;
+                String title = null;
+                String coord0 = null;
+                String coord1 = null;
+                String deep = null;
+
+                JSONObject geometry = currentEarthquake.getJSONObject("geometry");
+                Log.e(LOG_TAG, "geometry: " + geometry);
+
+                JSONArray earthquakeCoordArray = geometry.getJSONArray("coordinates");
+                Log.e(LOG_TAG, "earthquakeCoordArray: " + earthquakeCoordArray);
+
+                coord0 = String.valueOf(earthquakeCoordArray.getDouble(0));
+                Log.e(LOG_TAG, "coord0: " + coord0);
+
+                coord1 = String.valueOf(earthquakeCoordArray.getDouble(1));
+                Log.e(LOG_TAG, "coord1: " + coord1);
+
+                deep = String.valueOf(earthquakeCoordArray.getDouble(2));
+                Log.e(LOG_TAG, "deep: " + deep);
+
+                Earthquake earthquake =
+                        new Earthquake(magnitude, location, time, url, updateInMilliseconds,
+                                tz, detail, felt, cdi, mmi, alert, status, tsunami, sig, net,
+                                code, ids, sources, dmin, rms, gap, magType, type, title,
+                                coord0, coord1, deep);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 earthquakes.add(earthquake);
