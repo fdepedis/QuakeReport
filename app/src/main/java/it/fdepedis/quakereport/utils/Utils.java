@@ -35,17 +35,11 @@ public class Utils {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         //String minMagnitude = sharedPrefs.getString(valueOf(R.string.settings_min_magnitude_key), valueOf(R.string.settings_min_magnitude_default));
 
-        String minMagnitude = sharedPrefs.getString(
-                context.getString(R.string.settings_min_magnitude_key),
-                context.getString(R.string.settings_min_magnitude_default));
+        String minMagnitude = EarthquakePreferences.getMinMagnitudePreferences(context);
 
-        String orderBy = sharedPrefs.getString(
-                context.getString(R.string.settings_order_by_key),
-                context.getString(R.string.settings_order_by_default));
+        String orderBy = EarthquakePreferences.getOrderByPreferences(context);
 
-        String numItems = sharedPrefs.getString(
-                context.getString(R.string.settings_num_item_key),
-                context.getString(R.string.settings_num_item_default));
+        String numItems = EarthquakePreferences.getNumItemsPreferences(context);
 
         Log.d(LOG_TAG, "minMagnitude: " + minMagnitude );
         Log.d(LOG_TAG, "orderBy: " + orderBy );

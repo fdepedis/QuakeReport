@@ -5,6 +5,7 @@ import android.graphics.drawable.GradientDrawable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,13 @@ import java.util.Date;
 import java.util.List;
 
 import it.fdepedis.quakereport.R;
+import it.fdepedis.quakereport.activity.EarthquakeActivity;
 import it.fdepedis.quakereport.model.Earthquake;
 import it.fdepedis.quakereport.utils.Utils;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
+
+    private static final String LOG_TAG = EarthquakeAdapter.class.getName();
 
     private static final String LOCATION_SEPARATOR = " of ";
 

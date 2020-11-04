@@ -41,6 +41,30 @@ public class EarthquakePreferences {
     }
 
     /**
+     * Get orderBy in General -> Preferences
+     * */
+    public static String getOrderByPreferences(Context context) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String orderBy = sharedPrefs.getString(
+                context.getString(R.string.settings_order_by_key),
+                context.getString(R.string.settings_order_by_default));
+
+        return orderBy;
+    }
+
+    /**
+     * Get numItems in General -> Preferences
+     * */
+    public static String getNumItemsPreferences(Context context) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String numItems = sharedPrefs.getString(
+                context.getString(R.string.settings_num_item_key),
+                context.getString(R.string.settings_num_item_default));
+
+        return numItems;
+    }
+
+    /**
      * Get Min Magnitude Notification in Notification -> Preferences
      * */
     public static String getMinMagNotificationPreferences(Context context) {
