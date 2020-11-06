@@ -16,6 +16,7 @@
 package it.fdepedis.quakereport.sync;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.Driver;
@@ -32,9 +33,9 @@ public class EarthquakeSyncUtils {
 
     private static final String LOG_TAG = EarthquakeSyncUtils.class.getSimpleName();
 
-    private static final int SYNC_INTERVAL_MINUTES = new Time(System.currentTimeMillis()).getMinutes();
-    private static final int SYNC_INTERVAL_SECONDS = (int) TimeUnit.HOURS.toSeconds(SYNC_INTERVAL_MINUTES);
-    private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS + 5;
+    //private static final int SYNC_INTERVAL_PERIODICITY = new Time(System.currentTimeMillis()).getMinutes();
+    private static final int SYNC_INTERVAL_PERIODICITY = (int) TimeUnit.HOURS.toSeconds(24);
+    private static final int SYNC_INTERVAL_TOLERANCE = (int) TimeUnit.HOURS.toSeconds(1);
 
     private static boolean sInitialized;
 
@@ -48,6 +49,8 @@ public class EarthquakeSyncUtils {
         //Log.e(LOG_TAG, "SYNC_INTERVAL_MINUTES: " + SYNC_INTERVAL_MINUTES );
         //Log.e(LOG_TAG, "SYNC_INTERVAL_SECONDS: " + SYNC_INTERVAL_SECONDS );
         //Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
+        Log.e(LOG_TAG, "SYNC_INTERVAL_PERIODICITY: " + SYNC_INTERVAL_PERIODICITY );
+        Log.e(LOG_TAG, "SYNC_INTERVAL_TOLERANCE: " + SYNC_INTERVAL_TOLERANCE );
 
         Job syncQuakeReportJob = dispatcher.newJobBuilder()
                 .setService(EarthquakeFirebaseJobService.class)
@@ -56,8 +59,9 @@ public class EarthquakeSyncUtils {
                 .setLifetime(Lifetime.FOREVER)
                 .setRecurring(true)
                 .setTrigger(Trigger.executionWindow(
-                        SYNC_INTERVAL_MINUTES,
-                        SYNC_INTERVAL_MINUTES + 1))
+                        SYNC_INTERVAL_PERIODICITY,
+                        SYNC_INTERVAL_PERIODICITY + SYNC_INTERVAL_TOLERANCE))
+                //60*60*24,60*60*24+60 => ogni giorno
                 .setReplaceCurrent(true)
                 .build();
 
