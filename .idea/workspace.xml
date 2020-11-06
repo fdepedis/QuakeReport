@@ -11,8 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0896df6-2b34-4c1c-9bbb-83effd77c167" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/activity/EarthquakeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/activity/EarthquakeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,7 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_28_x86" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="8d7e9227" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -84,12 +83,6 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\01_Android\AndroidProjects\QuakeReport\app\src\main\res" />
-      <recent name="C:\Projects\01_Android\AndroidProjects\QuakeReport\app\src\main\res\drawable" />
-      <recent name="C:\Projects\Android\QuakeReport\app\src\main\res\drawable" />
-      <recent name="C:\Projects\Android\QuakeReport\app\src\main\res\mipmap-hdpi" />
-    </key>
     <key name="android.template.packageName">
       <recent name="com.example.android.quakereport" />
     </key>
@@ -102,6 +95,12 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="it.fdepedis.quakereport" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\01_Android\AndroidProjects\QuakeReport\app\src\main\res" />
+      <recent name="C:\Projects\01_Android\AndroidProjects\QuakeReport\app\src\main\res\drawable" />
+      <recent name="C:\Projects\Android\QuakeReport\app\src\main\res\drawable" />
+      <recent name="C:\Projects\Android\QuakeReport\app\src\main\res\mipmap-hdpi" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="it.fdepedis.quakereport.sync" />
