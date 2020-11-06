@@ -16,6 +16,7 @@
 package it.fdepedis.quakereport.sync;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.Driver;
@@ -48,6 +49,8 @@ public class EarthquakeSyncUtils {
         //Log.e(LOG_TAG, "SYNC_INTERVAL_MINUTES: " + SYNC_INTERVAL_MINUTES );
         //Log.e(LOG_TAG, "SYNC_INTERVAL_SECONDS: " + SYNC_INTERVAL_SECONDS );
         //Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
+        Log.e(LOG_TAG, "SYNC_INTERVAL_PERIODICITY: " + SYNC_INTERVAL_PERIODICITY );
+        Log.e(LOG_TAG, "SYNC_INTERVAL_TOLERANCE: " + SYNC_INTERVAL_TOLERANCE );
 
         Job syncQuakeReportJob = dispatcher.newJobBuilder()
                 .setService(EarthquakeFirebaseJobService.class)
