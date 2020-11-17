@@ -1,4 +1,4 @@
-package it.fdepedis.quakereport.settings;
+package it.fdepedis.quakereport.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,13 +8,12 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.core.app.NavUtils;
+import androidx.core.app.TaskStackBuilder;
 import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.activity.EarthquakeActivity;
-import it.fdepedis.quakereport.utils.NotificationUtils;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -80,9 +79,17 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, EarthquakeActivity.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(this, EarthquakeActivity.class);
+        startActivity(intent);*/
         super.onBackPressed();
+
+        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+        } else {
+            upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(upIntent);
+        }
     }
 
 }

@@ -23,7 +23,6 @@ import java.util.List;
 import it.fdepedis.quakereport.adapter.EarthquakeAdapter;
 import it.fdepedis.quakereport.loader.EarthquakeLoader;
 import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.settings.SettingsActivity;
 import it.fdepedis.quakereport.model.Earthquake;
 import it.fdepedis.quakereport.sync.EarthquakeSyncUtils;
 import it.fdepedis.quakereport.utils.Utils;
