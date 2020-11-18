@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0896df6-2b34-4c1c-9bbb-83effd77c167" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
@@ -21,6 +22,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+=======
+>>>>>>> develop
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/sync/EarthquakeSyncUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/fdepedis/quakereport/sync/EarthquakeSyncUtils.java" afterDir="false" />
 >>>>>>> develop
@@ -327,29 +330,29 @@
     <state x="2659" y="262" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604424988254" />
     <state x="591" y="208" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604700820899" />
     <state x="-1181" y="262" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602660282732" />
-    <state width="1491" height="295" key="GridCell.Tab.0.bottom" timestamp="1604700793741">
+    <state width="1491" height="145" key="GridCell.Tab.0.bottom" timestamp="1605731693529">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="364" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604502378945" />
-    <state width="1491" height="295" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604700793741" />
+    <state width="1491" height="145" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605731693529" />
     <state width="1877" height="290" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651254" />
-    <state width="1491" height="295" key="GridCell.Tab.0.center" timestamp="1604700793741">
+    <state width="1491" height="145" key="GridCell.Tab.0.center" timestamp="1605731693528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="364" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604502378945" />
-    <state width="1491" height="295" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604700793741" />
+    <state width="1491" height="145" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605731693528" />
     <state width="1877" height="290" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651254" />
-    <state width="1491" height="295" key="GridCell.Tab.0.left" timestamp="1604700793741">
+    <state width="1491" height="145" key="GridCell.Tab.0.left" timestamp="1605731693527">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="364" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604502378945" />
-    <state width="1491" height="295" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604700793741" />
+    <state width="1491" height="145" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605731693527" />
     <state width="1877" height="290" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651253" />
-    <state width="1491" height="295" key="GridCell.Tab.0.right" timestamp="1604700793741">
+    <state width="1491" height="145" key="GridCell.Tab.0.right" timestamp="1605731693529">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="364" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604502378945" />
-    <state width="1491" height="295" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604700793741" />
+    <state width="1491" height="145" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605731693529" />
     <state width="1877" height="290" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602658651254" />
     <state x="-1287" y="219" width="657" height="602" key="NewModule_or_Project.wizard" timestamp="1602517037001">
       <screen x="-1920" y="0" width="1920" height="1040" />
@@ -363,15 +366,15 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604409099320" />
-    <state x="2817" y="89" width="1022" height="813" key="find.popup" timestamp="1604441903685">
+    <state x="2817" y="89" width="1022" height="813" key="find.popup" timestamp="1605600981081">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2817" y="89" width="1022" height="813" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604441903685" />
+    <state x="2817" y="89" width="1022" height="813" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605600981081" />
     <state x="-1264" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602670300895" />
-    <state width="300" height="235" key="javadoc.popup.new" timestamp="1604700536709">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="375" height="161" key="javadoc.popup.new" timestamp="1605645122013">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="375" height="161" key="javadoc.popup.new/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604496175679" />
+    <state width="375" height="161" key="javadoc.popup.new/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605645122013" />
     <state width="300" height="235" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1604700536709" />
   </component>
 </project>

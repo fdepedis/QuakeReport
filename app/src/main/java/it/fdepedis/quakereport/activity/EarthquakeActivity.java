@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,12 +20,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import it.fdepedis.quakereport.adapter.EarthquakeAdapter;
 import it.fdepedis.quakereport.loader.EarthquakeLoader;
 import it.fdepedis.quakereport.R;
-import it.fdepedis.quakereport.settings.SettingsActivity;
 import it.fdepedis.quakereport.model.Earthquake;
 import it.fdepedis.quakereport.sync.EarthquakeSyncUtils;
 import it.fdepedis.quakereport.utils.Utils;
@@ -39,6 +42,8 @@ public class EarthquakeActivity extends AppCompatActivity
     private TextView mEmptyStateTextView;
     private SwipeRefreshLayout pullToRefresh;
     private ListView earthquakeListView;
+
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,5 +174,24 @@ public class EarthquakeActivity extends AppCompatActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }
