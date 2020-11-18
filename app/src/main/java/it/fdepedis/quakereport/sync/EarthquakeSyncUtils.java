@@ -46,24 +46,26 @@ public class EarthquakeSyncUtils {
         Driver driver = new GooglePlayDriver(context);
         FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
 
-        //Log.e(LOG_TAG, "SYNC_INTERVAL_MINUTES: " + SYNC_INTERVAL_MINUTES );
-        //Log.e(LOG_TAG, "SYNC_INTERVAL_SECONDS: " + SYNC_INTERVAL_SECONDS );
-        //Log.e(LOG_TAG, "SYNC_FLEXTIME_SECONDS: " + SYNC_FLEXTIME_SECONDS );
-        Log.e(LOG_TAG, "SYNC_INTERVAL_PERIODICITY: " + SYNC_INTERVAL_PERIODICITY );
-        Log.e(LOG_TAG, "SYNC_INTERVAL_TOLERANCE: " + SYNC_INTERVAL_TOLERANCE );
-
         Job syncQuakeReportJob = dispatcher.newJobBuilder()
                 .setService(EarthquakeFirebaseJobService.class)
                 .setTag(QUAKE_REPORT_SYNC_TAG)
                 .setConstraints(Constraint.ON_ANY_NETWORK)
                 .setLifetime(Lifetime.FOREVER)
                 .setRecurring(true)
-                .setTrigger(Trigger.executionWindow(
-                        SYNC_INTERVAL_PERIODICITY,
-                        SYNC_INTERVAL_PERIODICITY + SYNC_INTERVAL_TOLERANCE))
                 //60*60*24,60*60*24+60 => ogni giorno
+                .setTrigger(Trigger.executionWindow(
+                        //SYNC_INTERVAL_PERIODICITY,
+                        (60*60*24),
+                        //SYNC_INTERVAL_PERIODICITY + SYNC_INTERVAL_TOLERANCE))
+                        (60*60*24) + 60))
                 .setReplaceCurrent(true)
                 .build();
+
+        Log.e(LOG_TAG, "Notification Trigger.executionWindow(\n" +
+                "                        //SYNC_INTERVAL_PERIODICITY,\n" +
+                "                        (60*60*24),\n" +
+                "                        //SYNC_INTERVAL_PERIODICITY + SYNC_INTERVAL_TOLERANCE))\n" +
+                "                        (60*60*24) + 60)): ");
 
         dispatcher.schedule(syncQuakeReportJob);
 
