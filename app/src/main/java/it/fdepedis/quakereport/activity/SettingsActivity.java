@@ -79,17 +79,17 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        /*Intent intent = new Intent(this, EarthquakeActivity.class);
-        startActivity(intent);*/
         super.onBackPressed();
-
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        Intent intent = new Intent(this, EarthquakeActivity.class);
+        startActivity(intent);
+        
+        /*Intent upIntent = NavUtils.getParentActivityIntent(this);
         if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
             TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
         } else {
             upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(upIntent);
-        }
+        }*/
     }
 
 }
