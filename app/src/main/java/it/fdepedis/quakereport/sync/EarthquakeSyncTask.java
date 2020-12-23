@@ -58,18 +58,19 @@ public class EarthquakeSyncTask {
                 Log.e(LOG_TAG, "properties: " + properties);
 
                 double currMagNotification = properties.getDouble("mag");
-                String formattedCurrMagNotification = Utils.formatMagnitude(currMagNotification);
-                Log.e(LOG_TAG, "formattedCurrMagNotification: " + formattedCurrMagNotification);
+                String formatCurrMagNotification = Utils.formatMagnitude(currMagNotification);
+                Log.e(LOG_TAG, "formatCurrMagNotification: " + formatCurrMagNotification);
 
                 String currPlace = properties.getString("place");
                 Log.e(LOG_TAG, "currPlace: " + currPlace);
 
                 long currTime = properties.getLong("time");
                 Date dateObject = new Date(currTime);
-                String formattedCurrTime = Utils.formatDate(dateObject);
-                Log.e(LOG_TAG, "formattedCurrTime: " + formattedCurrTime);
+                String formatCurrTime = Utils.formatDate(dateObject);
+                Log.e(LOG_TAG, "formatCurrTime: " + formatCurrTime);
 
-                String formattedCurrHour = Utils.formatTime(dateObject);
+                String formatCurrHour = Utils.formatTime(dateObject);
+                Log.e(LOG_TAG, "formatCurrHour: " + formatCurrHour);
 
                 String url = properties.getString("url");
                 Log.e(LOG_TAG, "url: " + url);
@@ -82,7 +83,7 @@ public class EarthquakeSyncTask {
                 if (currMagNotification >= Double.parseDouble(minMagnitude)) {
                     Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> currMagNotification: " + currMagNotification + " >= " + "minMagnitude: " + minMagnitude);
 
-                    NotificationUtils.notifyUserOfNewQuakeReport(context, formattedCurrMagNotification, currPlace, formattedCurrTime, formattedCurrHour, url);
+                    NotificationUtils.notifyUserOfNewQuakeReport(context, formatCurrMagNotification, currPlace, formatCurrTime, formatCurrHour, url);
 
                 /*
                 long timeSinceLastNotification = SunshinePreferences
