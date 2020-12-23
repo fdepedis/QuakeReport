@@ -58,6 +58,7 @@ public class EarthquakeSyncUtils {
                         (60*60*24),
                         //SYNC_INTERVAL_PERIODICITY + SYNC_INTERVAL_TOLERANCE))
                         (60*60*24) + 60))
+                //.setTrigger(Trigger.executionWindow(0, 30))                                           // per i test
                 .setReplaceCurrent(true)
                 .build();
 
