@@ -18,12 +18,15 @@ package it.fdepedis.quakereport.sync;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URL;
+import java.util.Date;
 
+import it.fdepedis.quakereport.R;
 import it.fdepedis.quakereport.settings.EarthquakePreferences;
 import it.fdepedis.quakereport.utils.NotificationUtils;
 import it.fdepedis.quakereport.utils.QueryUtils;
@@ -55,13 +58,19 @@ public class EarthquakeSyncTask {
                 Log.e(LOG_TAG, "properties: " + properties);
 
                 double currMagNotification = properties.getDouble("mag");
-                Log.e(LOG_TAG, "currMagNotification: " + currMagNotification);
+                String formatCurrMagNotification = Utils.formatMagnitude(currMagNotification);
+                Log.e(LOG_TAG, "formatCurrMagNotification: " + formatCurrMagNotification);
 
                 String currPlace = properties.getString("place");
                 Log.e(LOG_TAG, "currPlace: " + currPlace);
 
                 long currTime = properties.getLong("time");
-                Log.e(LOG_TAG, "currTime: " + currTime);
+                Date dateObject = new Date(currTime);
+                String formatCurrTime = Utils.formatDate(dateObject);
+                Log.e(LOG_TAG, "formatCurrTime: " + formatCurrTime);
+
+                String formatCurrHour = Utils.formatTime(dateObject);
+                Log.e(LOG_TAG, "formatCurrHour: " + formatCurrHour);
 
                 String url = properties.getString("url");
                 Log.e(LOG_TAG, "url: " + url);
@@ -74,7 +83,7 @@ public class EarthquakeSyncTask {
                 if (currMagNotification >= Double.parseDouble(minMagnitude)) {
                     Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> currMagNotification: " + currMagNotification + " >= " + "minMagnitude: " + minMagnitude);
 
-                    NotificationUtils.notifyUserOfNewQuakeReport(context, currMagNotification, currPlace, currTime, url);
+                    NotificationUtils.notifyUserOfNewQuakeReport(context, formatCurrMagNotification, currPlace, formatCurrTime, formatCurrHour, url);
 
                 /*
                 long timeSinceLastNotification = SunshinePreferences

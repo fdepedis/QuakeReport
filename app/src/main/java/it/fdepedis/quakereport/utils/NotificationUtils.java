@@ -28,7 +28,7 @@ public class NotificationUtils {
      */
     private static final int QUAKE_REPORT_NOTIFICATION_ID = 3004;
 
-    public static void notifyUserOfNewQuakeReport(Context context, double magnitude, String place, long time, String url) {
+    public static void notifyUserOfNewQuakeReport(Context context, String magnitude, String place, String currTime, String currHour, String url) {
 
         Resources resources = context.getResources();
         int largeArtResourceId = R.mipmap.ic_launcher;
@@ -39,7 +39,9 @@ public class NotificationUtils {
                 largeArtResourceId);
 
         String notificationTitle = context.getString(R.string.app_name);
-        String notificationText = place;
+        String notificationText = "Location: " + place +
+                "\n" + "Magnitude: " + magnitude +
+                "\n" + "Time: " + currTime + " - " + currHour;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
@@ -66,6 +68,7 @@ public class NotificationUtils {
                     .setSmallIcon(smallArtResourceId)
                     .setLargeIcon(largeIcon)
                     .setContentTitle(notificationTitle)
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationText))
                     .setContentText(notificationText)
                     .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 }) //Vibration
                     //.setLights(Color.RED, 3000, 3000) //LED
