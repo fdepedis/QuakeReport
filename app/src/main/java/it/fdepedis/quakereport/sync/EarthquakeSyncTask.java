@@ -69,6 +69,8 @@ public class EarthquakeSyncTask {
                 String formattedCurrTime = Utils.formatDate(dateObject);
                 Log.e(LOG_TAG, "formattedCurrTime: " + formattedCurrTime);
 
+                String formattedCurrHour = Utils.formatTime(dateObject);
+
                 String url = properties.getString("url");
                 Log.e(LOG_TAG, "url: " + url);
 
@@ -80,7 +82,7 @@ public class EarthquakeSyncTask {
                 if (currMagNotification >= Double.parseDouble(minMagnitude)) {
                     Log.e(LOG_TAG, "ATTENZIONE: fai partire notifica ==> currMagNotification: " + currMagNotification + " >= " + "minMagnitude: " + minMagnitude);
 
-                    NotificationUtils.notifyUserOfNewQuakeReport(context, formattedCurrMagNotification, currPlace, formattedCurrTime, url);
+                    NotificationUtils.notifyUserOfNewQuakeReport(context, formattedCurrMagNotification, currPlace, formattedCurrTime, formattedCurrHour, url);
 
                 /*
                 long timeSinceLastNotification = SunshinePreferences
